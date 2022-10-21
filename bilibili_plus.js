@@ -196,6 +196,20 @@ const enableMall = Boolean(magicJS.read(bilibili_enable_mall));
           magicJS.logError(`直播去广告出现异常：${err}`);
         }
         break;
+      // 屏蔽热搜
+        case /^https?:\/\/app\.bilibili\.com\/x\/v2\/search\/square/.test(magicJS.request.url):
+        try {
+          let obj = JSON.parse(magicJS.response.body);
+          obj.data={
+      "type": "history",
+      "title": "搜索历史",
+      "search_hotword_revision": 2
+    };
+          body = JSON.stringify(obj);
+        } catch (err) {
+          magicJS.logError(`热搜去广告出现异常：${err}`);
+        }
+        break;
       // 追番去广告
       case /^https?:\/\/api\.bilibili\.com\/pgc\/page\/bangumi/.test(magicJS.request.url):
         try {
