@@ -196,27 +196,6 @@ const enableMall = Boolean(magicJS.read(bilibili_enable_mall));
           magicJS.logError(`直播去广告出现异常：${err}`);
         }
         break;
-      // 观影页去广告
-      case /pgc\/page\/cinema\/tab\?/.test(magicJS.request.url):
-        try {
-          let obj = JSON.parse(magicJS.response.body);
-          obj.result.modules.forEach((module) => {
-            // 头部banner
-            if (module.style.startsWith("banner")) {
-              module.items = module.items.filter((i) => !(i.link.indexOf("play")==-1));
-            }
-            if (module.style.startsWith("function")) {
-              module.items = module.items.filter((i) => (i.blink.indexOf("www.bilibili.com")==-1));
-            }
-            if (module.style.startsWith("tip")) {
-              module.items = null;
-            }
-          });
-          body = JSON.stringify(obj);
-        } catch (err) {
-          magicJS.logError(`观影页去广告出现异常：${err}`);
-        }
-        break;
       // 屏蔽热搜
         case /^https?:\/\/app\.bilibili\.com\/x\/v2\/search\/square/.test(magicJS.request.url):
         try {
