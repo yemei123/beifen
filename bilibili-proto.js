@@ -26,23 +26,6 @@ if (method !== "POST") {
     $notification.post(notifyTitle, "method错误:", method);
 }
 
-
-    if(!dynAllReplyObj.dynamicList?.list?.length){
-        console.log('动态列表list为空');
-    } else {
-        let adCount = 0;
-        dynAllReplyObj.dynamicList.list = dynAllReplyObj.dynamicList.list.filter(item => {
-            if(item.cardType !== 15){
-                return true;
-            }
-            adCount++;
-            return false;
-        });
-        if(adCount){
-            needProcessFlag = true;
-        }
-        console.log(`动态列表广告数量:${adCount}`);
-    }
     if(needProcessFlag){
         // let tagMapNullCount = 0;
         // dynAllReplyObj.dynamicList.list.forEach(item => {
