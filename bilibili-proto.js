@@ -26,12 +26,6 @@ if (method !== "POST") {
     $notification.post(notifyTitle, "method错误:", method);
 }
 
-if(url.includes("Dynamic/DynAll")){
-    console.log('动态DynAll');
-    const dynAllReplyType = biliRoot.lookupType("bilibili.app.dynamic.DynAllReply");
-    let dynAllReplyObj = dynAllReplyType.decode(unGzipBody);
-
-
 
     if(!dynAllReplyObj.dynamicList?.list?.length){
         console.log('动态列表list为空');
