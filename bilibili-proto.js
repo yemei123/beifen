@@ -26,25 +26,6 @@ if (method !== "POST") {
     $notification.post(notifyTitle, "method错误:", method);
 }
 
-    if(needProcessFlag){
-        // let tagMapNullCount = 0;
-        // dynAllReplyObj.dynamicList.list.forEach(item => {
-        //     item.modules.forEach(mo => {
-        //         mo.moduleAuthor?.author.avatar.fallbackLayers.layers.forEach(lObj => {
-        //             const tagsMap = lObj.layerConfig.tags;
-        //             for (const i in tagsMap) {
-        //                 if(tagsMap[i] === null){
-        //                     // 解决tagsMap的null is not an object问题
-        //                     tagMapNullCount++;
-        //                     delete tagsMap[i];
-        //                 }
-        //             }
-        //         })
-        //     })
-        // })
-        // console.log(`tagsMap处理:${tagMapNullCount}`)
-        body = processNewBody(dynAllReplyType.encode(dynAllReplyObj).finish());
-    }
 } else if(url.includes("View/View")){
     console.log('视频播放页View/View');
     const viewReplyType = biliRoot.lookupType("bilibili.app.view.ViewReply");
