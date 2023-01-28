@@ -30,6 +30,13 @@ if(url.includes("Dynamic/DynAll")){
     console.log('动态DynAll');
     const dynAllReplyType = biliRoot.lookupType("bilibili.app.dynamic.DynAllReply");
     let dynAllReplyObj = dynAllReplyType.decode(unGzipBody);
+    if(!dynAllReplyObj.topicList){
+        console.log('topicList为空');
+    } else {
+        needProcessFlag = true;
+        dynAllReplyObj.topicList = null;
+        console.log('推荐话题topicList去除');
+    }
 
 } else if(url.includes("View/View")){
     console.log('视频播放页View/View');
