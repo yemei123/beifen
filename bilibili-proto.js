@@ -46,6 +46,22 @@ if(url.includes("Dynamic/DynAll")){
         console.log('最常访问upList去除');
     }
 
+    if(!dynAllReplyObj.dynamicList?.list?.length){
+        console.log('动态列表list为空');
+    } else {
+        let adCount = 0;
+        dynAllReplyObj.dynamicList.list = dynAllReplyObj.dynamicList.list.filter(item => {
+            if(item.cardType !== 15){
+                return true;
+            }
+            adCount++;
+            return false;
+        });
+        if(adCount){
+            needProcessFlag = true;
+        }
+        console.log(`动态列表广告数量:${adCount}`);
+    }
     if(needProcessFlag){
         // let tagMapNullCount = 0;
         // dynAllReplyObj.dynamicList.list.forEach(item => {
@@ -53,10 +69,6 @@ if(url.includes("Dynamic/DynAll")){
         //         mo.moduleAuthor?.author.avatar.fallbackLayers.layers.forEach(lObj => {
         //             const tagsMap = lObj.layerConfig.tags;
         //             for (const i in tagsMap) {
-        //                 if(tagsMap[i] === null){
-        //                     // 解决tagsMap的null is not an object问题
-        //                     tagMapNullCount++;
-        //                     delete tagsMap[i];
         //                 }
         //             }
         //         })
