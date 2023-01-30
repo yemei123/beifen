@@ -28,6 +28,8 @@ if (method !== "POST") {
 
 if(url.includes("Dynamic/DynAll")){
     console.log('动态DynAll');
+    const dynAllReplyType = biliRoot.lookupType("bilibili.app.dynamic.DynAllReply");
+    let dynAllReplyObj = dynAllReplyType.decode(unGzipBody);
     if(!dynAllReplyObj.topicList){
         console.log('topicList为空');
     } else {
@@ -76,7 +78,7 @@ if(url.includes("Dynamic/DynAll")){
         //         })
         //     })
         // })
-        console.log(`tagsMap处理:${tagMapNullCount}`)
+         console.log(`tagsMap处理:${tagMapNullCount}`)
     }
 } else if(url.includes("View/View")){
     console.log('视频播放页View/View');
