@@ -63,12 +63,6 @@ if(url.includes("Dynamic/DynAll")){
         console.log(`动态列表广告数量:${adCount}`);
     }
     if(needProcessFlag){
-        // let tagMapNullCount = 0;
-        // dynAllReplyObj.dynamicList.list.forEach(item => {
-        //     item.modules.forEach(mo => {
-        //         mo.moduleAuthor?.author.avatar.fallbackLayers.layers.forEach(lObj => {
-        //             const tagsMap = lObj.layerConfig.tags;
-        //             for (const i in tagsMap) {
         //                 }
         //             }
         //         })
