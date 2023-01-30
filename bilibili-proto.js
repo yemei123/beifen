@@ -46,10 +46,6 @@ if(url.includes("Dynamic/DynAll")){
         console.log('最常访问upList去除');
     }
 
-    if(!dynAllReplyObj.dynamicList?.list?.length){
-        console.log('动态列表list为空');
-    } else {
-
     if(needProcessFlag){
         // let tagMapNullCount = 0;
         // dynAllReplyObj.dynamicList.list.forEach(item => {
