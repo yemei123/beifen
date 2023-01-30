@@ -30,41 +30,7 @@ if(url.includes("Dynamic/DynAll")){
     console.log('动态DynAll');
     const dynAllReplyType = biliRoot.lookupType("bilibili.app.dynamic.DynAllReply");
     let dynAllReplyObj = dynAllReplyType.decode(unGzipBody);
-    if(!dynAllReplyObj.topicList){
-        console.log('topicList为空');
-    } else {
-        needProcessFlag = true;
-        dynAllReplyObj.topicList = null;
-        console.log('推荐话题topicList去除');
-    }
 
-    if(!dynAllReplyObj.upList){
-        console.log('upList为空');
-    } else {
-        needProcessFlag = true;
-        dynAllReplyObj.upList = null;
-        console.log('最常访问upList去除');
-    }
-
-    if(!dynAllReplyObj.dynamicList?.list?.length){
-        console.log('动态列表list为空');
-    } else {
-        let adCount = 0;
-        dynAllReplyObj.dynamicList.list = dynAllReplyObj.dynamicList.list.filter(item => {
-            if(item.cardType !== 15){
-                return true;
-            }
-            adCount++;
-            return false;
-        });
-        if(adCount){
-            needProcessFlag = true;
-        }
-        console.log(`动态列表广告数量:${adCount}`);
-    }
-    if(needProcessFlag){
-        console.log('upList为空');
-    }
 } else if(url.includes("View/View")){
     console.log('视频播放页View/View');
     const viewReplyType = biliRoot.lookupType("bilibili.app.view.ViewReply");
@@ -149,7 +115,23 @@ if(url.includes("Dynamic/DynAll")){
     $notification.post('bilibili-proto', "路径匹配错误:", url);
 }
 
-
+if(needProcessFlag){
+    console.log(`${body.byteLength}---${body.buffer.byteLength}`);
+    if(isQuanX){
+        $done({
+            bodyBytes: body.buffer.slice(body.byteOffset, body.byteLength + body.byteOffset),
+            headers
+        });
+    } else {
+        $done({
+            body,
+            headers
+        });
+    }
+} else {
+    console.log('无需处理');
+    $done({});
+}
 
 function processNewBody(unGzipBody){
     const length = unGzipBody.length;
