@@ -28,8 +28,6 @@ if (method !== "POST") {
 
 if(url.includes("Dynamic/DynAll")){
     console.log('动态DynAll');
-    const dynAllReplyType = biliRoot.lookupType("bilibili.app.dynamic.DynAllReply");
-    let dynAllReplyObj = dynAllReplyType.decode(unGzipBody);
 
 } else if(url.includes("View/View")){
     console.log('视频播放页View/View');
