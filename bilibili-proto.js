@@ -57,11 +57,7 @@ if(url.includes("Dynamic/DynAll")){
             adCount++;
             return false;
         });
-        if(adCount){
-            needProcessFlag = true;
-        }
-        console.log(`动态列表广告数量:${adCount}`);
-    }
+
     if(needProcessFlag){
         // let tagMapNullCount = 0;
         // dynAllReplyObj.dynamicList.list.forEach(item => {
