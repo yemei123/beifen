@@ -62,13 +62,14 @@ if(url.includes("Dynamic/DynAll")){
         }
         console.log(`动态列表广告数量:${adCount}`);
     }
+        if(needProcessFlag){
         //                 }
         //             }
         //         })
         //     })
         // })
         // console.log(`tagsMap处理:${tagMapNullCount}`)
-        body = processNewBody(dynAllReplyType.encode(dynAllReplyObj).finish());
+        body = processNewBody(dynAllReplyType.decode(dynAllReplyObj).finish());
     }
 } else if(url.includes("View/View")){
     console.log('视频播放页View/View');
