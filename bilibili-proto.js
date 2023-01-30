@@ -49,8 +49,6 @@ if(url.includes("Dynamic/DynAll")){
     if(!dynAllReplyObj.dynamicList?.list?.length){
         console.log('动态列表list为空');
     } else {
-        let adCount = 0;
-        dynAllReplyObj.dynamicList.list = dynAllReplyObj.dynamicList.list.filter(item => {
 
     if(needProcessFlag){
         // let tagMapNullCount = 0;
