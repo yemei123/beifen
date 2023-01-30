@@ -62,7 +62,6 @@ if(url.includes("Dynamic/DynAll")){
         }
         console.log(`动态列表广告数量:${adCount}`);
     }
-    if(needProcessFlag){
         //                 }
         //             }
         //         })
