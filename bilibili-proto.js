@@ -51,12 +51,6 @@ if(url.includes("Dynamic/DynAll")){
     } else {
         let adCount = 0;
         dynAllReplyObj.dynamicList.list = dynAllReplyObj.dynamicList.list.filter(item => {
-            if(item.cardType !== 15){
-                return true;
-            }
-            adCount++;
-            return false;
-        });
 
     if(needProcessFlag){
         // let tagMapNullCount = 0;
