@@ -78,7 +78,7 @@ if(url.includes("Dynamic/DynAll")){
         //         })
         //     })
         // })
-         console.log(`tagsMap处理:${tagMapNullCount}`)
+         console.log('推荐话题topicList去除');
     }
 } else if(url.includes("View/View")){
     console.log('视频播放页View/View');
