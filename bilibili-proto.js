@@ -26,6 +26,9 @@ if (method !== "POST") {
     $notification.post(notifyTitle, "method错误:", method);
 }
 
+if(url.includes("Dynamic/DynAll")){
+    console.log('动态DynAll');
+
 } else if(url.includes("View/View")){
     console.log('视频播放页View/View');
     const viewReplyType = biliRoot.lookupType("bilibili.app.view.ViewReply");
