@@ -149,23 +149,7 @@ if(url.includes("Dynamic/DynAll")){
     $notification.post('bilibili-proto', "路径匹配错误:", url);
 }
 
-if(needProcessFlag){
-    console.log(`${body.byteLength}---${body.buffer.byteLength}`);
-    if(isQuanX){
-        $done({
-            bodyBytes: body.buffer.slice(body.byteOffset, body.byteLength + body.byteOffset),
-            headers
-        });
-    } else {
-        $done({
-            body,
-            headers
-        });
-    }
-} else {
-    console.log('无需处理');
-    $done({});
-}
+
 
 function processNewBody(unGzipBody){
     const length = unGzipBody.length;
